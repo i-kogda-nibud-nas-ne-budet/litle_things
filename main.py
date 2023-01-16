@@ -24,14 +24,21 @@ import os
 #
 #start_program()
 
-def array_diff(a, b):
-    q=[]
-    for i in range(len(a)):
-        if a[i] not in b:
-            q.append(a[i])
-    return q
+#def array_diff(a, b):
+#    q=[]
+#    for i in range(len(a)):
+#        if a[i] not in b:
+#            q.append(a[i])
+#    return q
+#
+##print('apples, pears # and bananas\ngrapes\nbananas !apples')
+#
+#q='apples, pears # and bananas\ngrapes\nbananas !apples'
+#print(q[2:4])
 
-#print('apples, pears # and bananas\ngrapes\nbananas !apples')
+from time import*
 
-q='apples, pears # and bananas\ngrapes\nbananas !apples'
-print(q[2:4])
+
+for i in range(1,10):
+    print(i)
+    sleep(1)
