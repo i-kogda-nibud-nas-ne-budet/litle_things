@@ -1,4 +1,4 @@
-import os
+
 
 #os.system(r'cd C:\Projects\litle_things\bin')
 #from play import*
@@ -36,9 +36,27 @@ import os
 #q='apples, pears # and bananas\ngrapes\nbananas !apples'
 #print(q[2:4])
 
-from time import*
+from turtle import*
+t1=Turtle()
+t2=Turtle()
+t3=Turtle()
+
+t1.speed(0)
+t2.speed(0)
+t3.speed(0)
+t1.color('red')
+t2.color('blue')
+t3.color('cyan')
+
+for i in range(180):
+    t1.fd(10)
+    t1.lt(5)
+    t2.fd(30)
+    t2.lt(10)
+    t3.fd(50)
+    t3.lt(15)
 
 
-for i in range(1,10):
-    print(i)
-    sleep(1)
+exitonclick()
+
+
