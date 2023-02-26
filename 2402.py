@@ -16,7 +16,15 @@ def cube(lenght,angle):
     forward(lenght)
     left(90-angle)
     forward(lenght//2)
+    goto(0,0)
+    left(90+angle)
 
-cube(100,70)
-#cube(200,60)
+width(5)
+color('cyan')
+cube(200,80)
+color('red')
+cube(200,70)
+color('orange')
+cube(200,60)
+
 exitonclick()
