@@ -32,3 +32,11 @@ for i in lvl:
 
 start_program()
     
+
+# create two random numbers from 0 to 12
+def random_number():
+    return random.randint(0,12)
+
+def random_number2():
+    return random.randint(0,12)
+#

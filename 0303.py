@@ -30,5 +30,3 @@ for i in image:
     goto(0,amount_string*(-20))
 
 exitonclick()
-
-# 2 random number
