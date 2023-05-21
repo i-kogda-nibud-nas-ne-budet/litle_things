@@ -34,18 +34,15 @@ class Picture(Area):
 #создание мяча и платформы   
 ball = Picture('ball.png', 160, 200, 50, 50)
 platform = Picture('platform.png', racket_x, racket_y, 100, 30)
-xx=10
-yy=10
 monsters=[]
 for i in range(3):
     for j in range(8):
-        monster = Picture('enemy.png',xx,yy,10,10)
+        monster = Picture('enemy.png',10+60*j,10+60*i,10,10)
         monsters.append(monster)
-        xx+=60
-    xx=10
-    yy+=60
 move_left=False
 move_right=False
+speed_x=3
+speed_y=3
 while not game_over:
     ball.fill()
     platform.fill()
@@ -66,6 +63,18 @@ while not game_over:
         platform.rect.x-=3
     for m in monsters:
         m.draw()
+        if m.colliderect(ball.rect):
+            monsters.remove(m)
+            m.fill()
+            speed_y*=-1
+    if ball.colliderect(platform.rect):
+        speed_y*=-1
+    if ball.rect.x >450 or ball.rect.x <0:
+        speed_x*=-1
+    if ball.rect.y <0:
+        speed_y*=-1
+    ball.rect.x+=speed_x
+    ball.rect.y+=speed_y
     platform.draw()
     ball.draw()
     pygame.display.update()

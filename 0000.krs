@@ -1,0 +1,9667 @@
+restart = 0;
+title = 'VN.037.000';
+dt_max = 0.01;
+dt_out = 0;
+dt_sav = 0;
+noption = '6';
+dt_diag = 0;
+accel_stat = 0;
+append_sav = 0;
+append_res = 1;
+!tp=0.;                       !выводимое на экран время
+!hp=10.;                     !шаг вывода на экран
+fin_tim = 100;
+ngas = ;
+
+layout
+CH1/i-BVOL_T1;
+CH2/i-BVOL_T2;
+CH3/i-BVOL_T3;
+CH4/i-BVOL_T4;
+CH5/o-BVOL_T5;
+CH6/i-COL1;
+CH7/i-BVOL_T6;
+CH7/o-COL1;
+CH8/o-BVOL_T7;
+CH9/i-BVOL_T8;
+CH9/o-COL2;
+CH10/o-COL2;
+CH11/i-BVOL_T9;
+CH11/o-COL2;
+CH12/i-COL1;
+CH12/o-COL3;
+CH12(1)-VAL1;
+CH13/i-COL1;
+CH13/o-COL4;
+CH13(1)-VAL2;
+CH14/i-COL4;
+CH14/o-COL3;
+CH15/i-COL1;
+CH15/o-COL5;
+CH15(1)-VAL3;
+CH16/i-COL5;
+CH16/o-COL3;
+CH17/i-COL3;
+CH17/o-COL6;
+CH18/i-COL2;
+CH18/o-COL6;
+CH18(1)-VAL4;
+CH19/i-COL19;
+CH19(1)-VAL7;
+CH20/i-COL7;
+CH21/o-COL7;
+CH21(2)-CPUMP1;
+CH21(1)-VAL5;
+CH21(2)-VAL6;
+CH21(3)-LR1;
+CH22/i-COL6;
+CH23/i-BVOL_T10;
+CH24/i-BVOL_T11;
+CH25/i-BVOL_T12;
+CH26/i-BVOL_T13;
+CH27/o-BVOL_T14;
+CH28/i-COL8;
+CH29/i-BVOL_T15;
+CH29/o-COL8;
+CH30/o-BVOL_T16;
+CH31/i-BVOL_T17;
+CH31/o-COL9;
+CH32/o-COL9;
+CH33/i-BVOL_T18;
+CH33/o-COL9;
+CH34/i-COL8;
+CH34/o-COL10;
+CH34(1)-VAL8;
+CH35/i-COL8;
+CH35/o-COL11;
+CH35(1)-VAL9;
+CH36/i-COL11;
+CH36/o-COL10;
+CH37/i-COL8;
+CH37/o-COL12;
+CH37(1)-VAL10;
+CH38/i-COL12;
+CH38/o-COL10;
+CH39/i-COL10;
+CH39/o-COL13;
+CH40/i-COL9;
+CH40/o-COL13;
+CH40(1)-VAL11;
+CH41/i-COL18;
+CH41(1)-VAL14;
+CH42/i-COL14;
+CH43/o-COL14;
+CH43(2)-CPUMP2;
+CH43(1)-VAL12;
+CH43(2)-VAL13;
+CH43(3)-LR2;
+CH44/i-COL13;
+CH45/o-COL15;
+CH46/i-COL15;
+CH46/o-BVOL_T19;
+CH46(1)-VAL15;
+CH47/o-COL16;
+CH48/i-COL15;
+CH48/o-COL17;
+CH48(1)-VAL16;
+CH49/i-COL16;
+CH49/o-BVOL_T20;
+CH49(1)-VAL18;
+CH50/i-COL17;
+CH50/o-COL16;
+CH50(1)-VAL17;
+CH51/i-COL17;
+CH51/o-BVOL_T21;
+CH52/i-COL19;
+CH52/o-COL18;
+CH53/i-COL18;
+CH53/o-COL20;
+CH54/i-COL20;
+CH54/o-COL21;
+CH54(1)-VAL19;
+CH55/i-COL22;
+CH55/o-COL21;
+CH56/i-COL22;
+CH56/o-BVOL_T22;
+CH57/i-COL23;
+CH57/o-COL22;
+CH57(1)-VAL20;
+CH58/i-COL24;
+CH58/o-COL23;
+CH58(1)-VAL21;
+CH58(2)-LR3;
+CH59/i-CH69(1);
+CH59/o-COL24;
+CH60/i-COL26;
+CH60/o-COL25;
+CH60(2)-CPUMP3;
+CH60(1)-VAL23;
+CH61/i-COL25;
+CH61(1)-VAL22;
+CH62/i-COL27;
+CH62/o-COL26;
+CH63/i-COL28;
+CH63/o-COL27;
+CH64/i-BVOL_T23;
+CH64/o-COL27;
+CH65/i-BVOL_T24;
+CH65/o-COL28;
+CH66/i-BVOL_T25;
+CH66/o-COL28;
+CH67/i-COL26;
+CH67/o-COL29;
+CH67(1)-VAL59;
+CH67(2)-CPUMP4;
+CH68/i-COL29;
+CH68(1)-VAL24;
+CH69/i-COL25;
+CH69/o-CH59(1);
+CH70/i-COL29;
+CH70/o-CH71(1);
+CH71/i-CH70(1);
+CH71/o-COL30;
+CH72/i-COL30;
+CH72/o-COL23;
+CH72(1)-LR4;
+CH72(2)-VAL25;
+CH73/i-COL30;
+CH73/o-COL32;
+CH73(1)-LR6;
+CH73(2)-VAL27;
+CH74/i-COL24;
+CH74/o-COL31;
+CH74(1)-LR5;
+CH74(2)-VAL26;
+CH75/i-COL31;
+CH75/o-COL32;
+CH76/i-COL31;
+CH76(1)-VAL31;
+CH77/i-COL32;
+CH77/o-COL33;
+CH77(1)-VAL29;
+CH78/i-COL33;
+CH78(1)-VAL28;
+CH79/i-COL33;
+CH79/o-BVOL_T26;
+CH79(1)-VAL30;
+CH80/i-BVOL_T27;
+CH80/o-COL34;
+CH81/i-COL34;
+CH81/o-COL14;
+CH81(1)-VAL32;
+CH82/i-COL34;
+CH82/o-COL7;
+CH82(1)-VAL33;
+CH83/i-COL21;
+CH83/o-COL35;
+CH83(1)-VAL50;
+CH84/i-COL35;
+CH84/o-COL36;
+CH84(1)-VAL36;
+CH85/i-COL36;
+CH85/o-COL37;
+CH86/i-COL37;
+CH86/o-COL38;
+CH87/i-COL38;
+CH87/o-COL39;
+CH87(1)-LR7;
+CH88/i-COL39;
+CH88/o-COL40;
+CH89/i-COL36;
+CH89/o-COL41;
+CH89(1)-VAL34;
+CH90/i-BVOL_T28;
+CH90/o-COL41;
+CH90(1)-VAL35;
+CH91/i-COL41;
+CH91/o-BVOL_T29;
+CH92/i-COL40;
+CH92/o-COL42;
+CH93/i-COL37;
+CH93/o-BVOL_T30;
+CH94/i-BVOL_T31;
+CH94/o-COL38;
+CH95/i-COL39;
+CH95/o-BVOL_T32;
+CH96/i-COL40;
+CH96/o-BVOL_T33;
+CH97/i-BVOL_T34;
+CH97/o-COL42;
+CH98/i-BVOL_T35;
+CH98/o-BVOL_T28;
+CH99/i-BVOL_T36;
+CH99/o-BVOL_T28;
+CH100/i-COL50;
+CH100/o-COL43;
+CH100(1)-VAL39;
+CH101/i-COL43;
+CH101/o-COL44;
+CH102/i-COL44;
+CH102/o-COL45;
+CH103/i-COL45;
+CH103/o-COL46;
+CH103(1)-LR8;
+CH104/i-COL46;
+CH104/o-COL47;
+CH105/i-COL43;
+CH105/o-COL48;
+CH105(1)-VAL37;
+CH106/i-BVOL_T37;
+CH106/o-COL48;
+CH106(1)-VAL38;
+CH107/i-COL48;
+CH107/o-BVOL_T38;
+CH108/i-COL47;
+CH108/o-COL49;
+CH109/i-COL44;
+CH109/o-BVOL_T39;
+CH110/i-BVOL_T40;
+CH110/o-COL45;
+CH111/i-COL46;
+CH111/o-BVOL_T41;
+CH112/i-COL47;
+CH112/o-BVOL_T42;
+CH113/i-BVOL_T43;
+CH113/o-COL49;
+CH114/i-BVOL_T44;
+CH114/o-BVOL_T37;
+CH115/i-BVOL_T45;
+CH115/o-BVOL_T37;
+CH116/i-COL35;
+CH116/o-COL52;
+CH116(1)-VAL46;
+CH117/i-COL42;
+CH117/o-COL51;
+CH118/i-COL52;
+CH118/o-COL50;
+CH119/i-COL50;
+CH119/o-COL51;
+CH119(1)-VAL62;
+CH120/i-COL54;
+CH120/o-COL53;
+CH121/i-COL51;
+CH121/o-COL53;
+CH121(1)-VAL47;
+CH122/i-COL49;
+CH122/o-COL54;
+CH122(1)-VAL40;
+CH123/i-COL53;
+CH123/o-COL55;
+CH123(1)-VAL48;
+CH124/i-COL55;
+CH124/o-COL56;
+CH125/i-COL56;
+CH125/o-COL57;
+CH125(1)-LR9;
+CH126/i-COL56;
+CH126/o-BVOL_T46;
+CH127/i-BVOL_T47;
+CH127/o-COL57;
+CH128/i-COL57;
+CH128/o-COL58;
+CH128(1)-VAL64;
+CH129/i-COL59;
+CH129/o-COL68;
+CH130/i-COL58;
+CH130/o-COL59;
+CH130(1)-LR11;
+CH131/i-COL58;
+CH131/o-COL59;
+CH131(1)-VAL49;
+CH132/i-COL20;
+CH132/o-COL60;
+CH133/i-COL60;
+CH133/o-COL61;
+CH133(1)-VAL61;
+CH134/i-COL61;
+CH134/o-COL62;
+CH135/i-COL62;
+CH135/o-COL63;
+CH136/i-COL63;
+CH136/o-COL64;
+CH137/i-COL64;
+CH137/o-COL65;
+CH137(1)-VAL60;
+CH138/i-COL65;
+CH138/o-COL66;
+CH138(1)-LR10;
+CH139/i-COL65;
+CH139/o-COL66;
+CH139(1)-VAL41;
+CH140/i-COL66;
+CH140/o-BVOL_T48;
+CH141/i-COL64;
+CH141(1)-VAL42;
+CH141(2)-VAL43;
+CH142/i-COL63;
+CH142/o-BVOL_T49;
+CH142(1)-VAL44;
+CH143/i-COL60;
+CH143/o-BVOL_T50;
+CH143(1)-VAL45;
+CH144/i-COL61;
+CH144/o-COL67;
+CH144(1)-VAL51;
+CH144(2)-VAL54;
+CH145/i-COL62;
+CH145/o-COL67;
+CH145(1)-VAL52;
+CH145(2)-VAL53;
+CH146/i-COL67;
+CH147/i-COL52;
+CH147(1)-VAL55;
+CH148/i-COL68;
+CH148/o-COL19;
+CH149/i-COL68;
+CH149/o-COL69;
+CH149(1)-VAL58;
+CH150/i-COL55;
+CH150/o-COL69;
+CH150(1)-VAL56;
+CH151/i-COL69;
+CH151/o-COL70;
+CH152/i-COL54;
+CH152/o-COL70;
+CH152(1)-VAL57;
+CH153/i-COL70;
+CH154/i-BVOL_T51;
+CH154/o-BVOL_T52;
+CH154(1)-VAL63;
+CH22/o-TANK1/1;
+CH43/i-TANK1/2;
+CH44/o-TANK2/1;
+CH21/i-TANK2/2;
+CH61/o-TANK3/1;
+CH68/o-TANK3/2;
+CH76/o-TANK3/3;
+CH78/o-TANK4/1;
+CH146/o-TANK5/1;
+CH147/o-TANK5/2;
+CH153/o-TANK5/3;
+CH141/o-TANK6/1;
+CH1/o-SLVES1/1;
+CH2/o-SLVES1/2;
+CH3/o-SLVES1/3;
+CH4/o-SLVES1/4;
+CH5/i-SLVES1/5;
+CH19/o-SLVES1/6;
+CH20/o-SLVES1/7;
+CH6/o-SLVES1/8;
+CH8/i-SLVES1/9;
+CH10/i-SLVES1/10;
+CH45/i-SLVES1/11;
+CH23/o-SLVES2/1;
+CH24/o-SLVES2/2;
+CH25/o-SLVES2/3;
+CH26/o-SLVES2/4;
+CH27/i-SLVES2/5;
+CH41/o-SLVES2/6;
+CH42/o-SLVES2/7;
+CH28/o-SLVES2/8;
+CH30/i-SLVES2/9;
+CH32/i-SLVES2/10;
+CH47/i-SLVES2/11;
+end
+
+call CH1;
+call CH2;
+call CH3;
+call CH4;
+call CH5;
+call CH6;
+call CH7;
+call CH8;
+call CH9;
+call CH10;
+call CH11;
+call CH12;
+call CH13;
+call CH14;
+call CH15;
+call CH16;
+call CH17;
+call CH18;
+call CH19;
+call CH20;
+call CH21;
+call CH22;
+call CH23;
+call CH24;
+call CH25;
+call CH26;
+call CH27;
+call CH28;
+call CH29;
+call CH30;
+call CH31;
+call CH32;
+call CH33;
+call CH34;
+call CH35;
+call CH36;
+call CH37;
+call CH38;
+call CH39;
+call CH40;
+call CH41;
+call CH42;
+call CH43;
+call CH44;
+call CH45;
+call CH46;
+call CH47;
+call CH48;
+call CH49;
+call CH50;
+call CH51;
+call CH52;
+call CH53;
+call CH54;
+call CH55;
+call CH56;
+call CH57;
+call CH58;
+call CH59;
+call CH60;
+call CH61;
+call CH62;
+call CH63;
+call CH64;
+call CH65;
+call CH66;
+call CH67;
+call CH68;
+call CH69;
+call CH70;
+call CH71;
+call CH72;
+call CH73;
+call CH74;
+call CH75;
+call CH76;
+call CH77;
+call CH78;
+call CH79;
+call CH80;
+call CH81;
+call CH82;
+call CH83;
+call CH84;
+call CH85;
+call CH86;
+call CH87;
+call CH88;
+call CH89;
+call CH90;
+call CH91;
+call CH92;
+call CH93;
+call CH94;
+call CH95;
+call CH96;
+call CH97;
+call CH98;
+call CH99;
+call CH100;
+call CH101;
+call CH102;
+call CH103;
+call CH104;
+call CH105;
+call CH106;
+call CH107;
+call CH108;
+call CH109;
+call CH110;
+call CH111;
+call CH112;
+call CH113;
+call CH114;
+call CH115;
+call CH116;
+call CH117;
+call CH118;
+call CH119;
+call CH120;
+call CH121;
+call CH122;
+call CH123;
+call CH124;
+call CH125;
+call CH126;
+call CH127;
+call CH128;
+call CH129;
+call CH130;
+call CH131;
+call CH132;
+call CH133;
+call CH134;
+call CH135;
+call CH136;
+call CH137;
+call CH138;
+call CH139;
+call CH140;
+call CH141;
+call CH142;
+call CH143;
+call CH144;
+call CH145;
+call CH146;
+call CH147;
+call CH148;
+call CH149;
+call CH150;
+call CH151;
+call CH152;
+call CH153;
+call CH154;
+call COL1;
+call COL2;
+call COL3;
+call COL4;
+call COL5;
+call COL6;
+call COL7;
+call COL8;
+call COL9;
+call COL10;
+call COL11;
+call COL12;
+call COL13;
+call COL14;
+call COL15;
+call COL16;
+call COL17;
+call COL18;
+call COL19;
+call COL20;
+call COL21;
+call COL22;
+call COL23;
+call COL24;
+call COL25;
+call COL26;
+call COL27;
+call COL28;
+call COL29;
+call COL30;
+call COL31;
+call COL32;
+call COL33;
+call COL34;
+call COL35;
+call COL36;
+call COL37;
+call COL38;
+call COL39;
+call COL40;
+call COL41;
+call COL42;
+call COL43;
+call COL44;
+call COL45;
+call COL46;
+call COL47;
+call COL48;
+call COL49;
+call COL50;
+call COL51;
+call COL52;
+call COL53;
+call COL54;
+call COL55;
+call COL56;
+call COL57;
+call COL58;
+call COL59;
+call COL60;
+call COL61;
+call COL62;
+call COL63;
+call COL64;
+call COL65;
+call COL66;
+call COL67;
+call COL68;
+call COL69;
+call COL70;
+call CPUMP1;
+call CPUMP2;
+call CPUMP3;
+call CPUMP4;
+call BVOL_T1;
+call BVOL_T2;
+call BVOL_T3;
+call BVOL_T4;
+call BVOL_T5;
+call BVOL_T6;
+call BVOL_T7;
+call BVOL_T8;
+call BVOL_T9;
+call BVOL_T10;
+call BVOL_T11;
+call BVOL_T12;
+call BVOL_T13;
+call BVOL_T14;
+call BVOL_T15;
+call BVOL_T16;
+call BVOL_T17;
+call BVOL_T18;
+call BVOL_T19;
+call BVOL_T20;
+call BVOL_T21;
+call BVOL_T22;
+call BVOL_T23;
+call BVOL_T24;
+call BVOL_T25;
+call BVOL_T26;
+call BVOL_T27;
+call BVOL_T28;
+call BVOL_T29;
+call BVOL_T30;
+call BVOL_T31;
+call BVOL_T32;
+call BVOL_T33;
+call BVOL_T34;
+call BVOL_T35;
+call BVOL_T36;
+call BVOL_T37;
+call BVOL_T38;
+call BVOL_T39;
+call BVOL_T40;
+call BVOL_T41;
+call BVOL_T42;
+call BVOL_T43;
+call BVOL_T44;
+call BVOL_T45;
+call BVOL_T46;
+call BVOL_T47;
+call BVOL_T48;
+call BVOL_T49;
+call BVOL_T50;
+call BVOL_T51;
+call BVOL_T52;
+call TANK1;
+call TANK2;
+call TANK3;
+call TANK4;
+call TANK5;
+call TANK6;
+call LR1;
+call LR2;
+call LR3;
+call LR4;
+call LR5;
+call LR6;
+call LR7;
+call LR8;
+call LR9;
+call LR10;
+call LR11;
+call VAL1;
+call VAL2;
+call VAL3;
+call VAL4;
+call VAL5;
+call VAL6;
+call VAL7;
+call VAL8;
+call VAL9;
+call VAL10;
+call VAL11;
+call VAL12;
+call VAL13;
+call VAL14;
+call VAL15;
+call VAL16;
+call VAL17;
+call VAL18;
+call VAL19;
+call VAL20;
+call VAL21;
+call VAL22;
+call VAL23;
+call VAL24;
+call VAL25;
+call VAL26;
+call VAL27;
+call VAL28;
+call VAL29;
+call VAL30;
+call VAL31;
+call VAL32;
+call VAL33;
+call VAL34;
+call VAL35;
+call VAL36;
+call VAL37;
+call VAL38;
+call VAL39;
+call VAL40;
+call VAL41;
+call VAL42;
+call VAL43;
+call VAL44;
+call VAL45;
+call VAL46;
+call VAL47;
+call VAL48;
+call VAL49;
+call VAL50;
+call VAL51;
+call VAL52;
+call VAL53;
+call VAL54;
+call VAL55;
+call VAL56;
+call VAL57;
+call VAL58;
+call VAL59;
+call VAL60;
+call VAL61;
+call VAL62;
+call VAL63;
+call VAL64;
+call SLVES1;
+call SLVES2;
+end
+
+data CH1
+!Name=CH1;
+!  x_0=288; y_0=-8
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00490166993776347;
+ PR(1) = 0.248185819633594;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 600000;
+ T(1,1) = 353.15;
+ T(2,1) = 431.98;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH2
+!Name=CH2;
+!  x_0=292; y_0=-104
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 333.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH3
+!Name=CH3;
+!  x_0=292; y_0=-176
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 600000;
+ T(1,1) = 363.15;
+ T(2,1) = 431.98;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH4
+!Name=CH4;
+!  x_0=292; y_0=-256
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 393.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH5
+!Name=CH5;
+!  x_0=440; y_0=64
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 393.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH6
+!Name=CH6;
+!  x_0=216; y_0=120
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH7
+!Name=CH7;
+!  x_0=104; y_0=-24
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH8
+!Name=CH8;
+!  x_0=484; y_0=156
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH9
+!Name=CH9;
+!  x_0=376; y_0=256
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH10
+!Name=CH10;
+!  x_0=368; y_0=152
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH11
+!Name=CH11;
+!  x_0=376; y_0=312
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0169716689128555;
+ PR(1) = 0.4618141200777;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH12
+!Name=CH12;
+!  x_0=192; y_0=136
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH13
+!Name=CH13;
+!  x_0=168; y_0=128
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH14
+!Name=CH14;
+!  x_0=16; y_0=304
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH15
+!Name=CH15;
+!  x_0=168; y_0=112
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH16
+!Name=CH16;
+!  x_0=-112; y_0=312
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH17
+!Name=CH17;
+!  x_0=16; y_0=432
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH18
+!Name=CH18;
+!  x_0=280; y_0=272
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH19
+!Name=CH19;
+!  x_0=456; y_0=-554
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH20
+!Name=CH20;
+!  x_0=480; y_0=-296
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH21
+!Name=CH21;
+!  x_0=-1064; y_0=792
+!  width=2; height=
+ !DZsum=3; DHsum=0
+ N=3;
+ S(1:3) = 0.00057255526111674;
+ PR(1:3) = 0.0848230016469244;
+ DZ(1:3) = 1;
+ DH(1:3) = 0;
+ ROU(1:3) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:3) = 0;
+ P(1:3) = 250000;
+ T(1,1:3) = 363.15;
+ T(2,1:3) = 400.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:3) = 0;
+ XB(1:3) = 0.007;
+ MBW(1:3) = 0;
+ XNG(1,1:3) = 0;
+ XNG(2,1:3) = 0;
+ XNG(3,1:3) = 0;
+ XNG(4,1:3) = 0;
+ XNF(1,1:3) = 0;
+ XNF(2,1:3) = 0;
+ XNF(3,1:3) = 0;
+ XNF(4,1:3) = 0;
+END
+
+data CH22
+!Name=CH22;
+!  x_0=16; y_0=524
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH23
+!Name=CH23;
+!  x_0=-832; y_0=-40
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00490166993776347;
+ PR(1) = 0.248185819633594;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 600000;
+ T(1,1) = 353.15;
+ T(2,1) = 431.98;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH24
+!Name=CH24;
+!  x_0=-828; y_0=-136
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 333.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH25
+!Name=CH25;
+!  x_0=-828; y_0=-208
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 600000;
+ T(1,1) = 363.15;
+ T(2,1) = 431.98;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH26
+!Name=CH26;
+!  x_0=-828; y_0=-288
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 393.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH27
+!Name=CH27;
+!  x_0=-680; y_0=32
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 393.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH28
+!Name=CH28;
+!  x_0=-904; y_0=88
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH29
+!Name=CH29;
+!  x_0=-1016; y_0=-56
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH30
+!Name=CH30;
+!  x_0=-640; y_0=124
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH31
+!Name=CH31;
+!  x_0=-744; y_0=224
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH32
+!Name=CH32;
+!  x_0=-752; y_0=120
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH33
+!Name=CH33;
+!  x_0=-744; y_0=280
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0169716689128555;
+ PR(1) = 0.4618141200777;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH34
+!Name=CH34;
+!  x_0=-928; y_0=104
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH35
+!Name=CH35;
+!  x_0=-952; y_0=96
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH36
+!Name=CH36;
+!  x_0=-1104; y_0=272
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH37
+!Name=CH37;
+!  x_0=-952; y_0=80
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH38
+!Name=CH38;
+!  x_0=-1232; y_0=280
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH39
+!Name=CH39;
+!  x_0=-1104; y_0=400
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH40
+!Name=CH40;
+!  x_0=-840; y_0=240
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH41
+!Name=CH41;
+!  x_0=-664; y_0=-552
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH42
+!Name=CH42;
+!  x_0=-640; y_0=-328
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH43
+!Name=CH43;
+!  x_0=-24; y_0=832
+!  width=2; height=
+ !DZsum=3; DHsum=0
+ N=3;
+ S(1:3) = 0.00057255526111674;
+ PR(1:3) = 0.0848230016469244;
+ DZ(1:3) = 1;
+ DH(1:3) = 0;
+ ROU(1:3) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:3) = 0;
+ P(1:3) = 250000;
+ T(1,1:3) = 363.15;
+ T(2,1:3) = 400.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:3) = 0;
+ XB(1:3) = 0.007;
+ MBW(1:3) = 0;
+ XNG(1,1:3) = 0;
+ XNG(2,1:3) = 0;
+ XNG(3,1:3) = 0;
+ XNG(4,1:3) = 0;
+ XNF(1,1:3) = 0;
+ XNF(2,1:3) = 0;
+ XNF(3,1:3) = 0;
+ XNF(4,1:3) = 0;
+END
+
+data CH44
+!Name=CH44;
+!  x_0=-1104; y_0=492
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 298.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH45
+!Name=CH45;
+!  x_0=464; y_0=168
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH46
+!Name=CH46;
+!  x_0=484; y_0=408
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH47
+!Name=CH47;
+!  x_0=-656; y_0=136
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH48
+!Name=CH48;
+!  x_0=460; y_0=426
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH49
+!Name=CH49;
+!  x_0=-660; y_0=584
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH50
+!Name=CH50;
+!  x_0=-272; y_0=560
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH51
+!Name=CH51;
+!  x_0=-256; y_0=580
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 150000;
+ T(1,1) = 363.15;
+ T(2,1) = 384.49;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH52
+!Name=CH52;
+!  x_0=428; y_0=-580
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH53
+!Name=CH53;
+!  x_0=-680; y_0=-576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH54
+!Name=CH54;
+!  x_0=-1384; y_0=-576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH55
+!Name=CH55;
+!  x_0=-1640; y_0=-432
+!  width=4; height=
+ !DZsum=1; DHsum=7.5
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 7.5;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH56
+!Name=CH56;
+!  x_0=-1616; y_0=-416
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH57
+!Name=CH57;
+!  x_0=-1640; y_0=-128
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH58
+!Name=CH58;
+!  x_0=-1416; y_0=72
+!  width=4; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 0.0075429639612691;
+ PR(1:2) = 0.3078760800518;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 1600000;
+ T(1,1:2) = 363.15;
+ T(2,1:2) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH59
+!Name=CH59;
+!  x_0=-1416; y_0=216
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH60
+!Name=CH60;
+!  x_0=-1752; y_0=528
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH61
+!Name=CH61;
+!  x_0=-1432; y_0=312
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH62
+!Name=CH62;
+!  x_0=-1776; y_0=632
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH63
+!Name=CH63;
+!  x_0=-1776; y_0=752
+!  width=7; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0304805173232916;
+ PR(1) = 0.618893752757189;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH64
+!Name=CH64;
+!  x_0=-1640; y_0=664
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH65
+!Name=CH65;
+!  x_0=-1952; y_0=768
+!  width=7; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0304805173232916;
+ PR(1) = 0.618893752757189;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH66
+!Name=CH66;
+!  x_0=-1952; y_0=880
+!  width=7; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0304805173232916;
+ PR(1) = 0.618893752757189;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH67
+!Name=CH67;
+!  x_0=-1792; y_0=528
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 700000;
+ T(1,1) = 363.15;
+ T(2,1) = 438.1;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH68
+!Name=CH68;
+!  x_0=-2072; y_0=328
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH69
+!Name=CH69;
+!  x_0=-1416; y_0=296
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00301907054009979;
+ PR(1) = 0.194778744522567;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH70
+!Name=CH70;
+!  x_0=-2088; y_0=312
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00301907054009979;
+ PR(1) = 0.194778744522567;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH71
+!Name=CH71;
+!  x_0=-2088; y_0=244
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH72
+!Name=CH72;
+!  x_0=-2088; y_0=80
+!  width=4; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 0.0075429639612691;
+ PR(1:2) = 0.3078760800518;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 1600000;
+ T(1,1:2) = 363.15;
+ T(2,1:2) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH73
+!Name=CH73;
+!  x_0=-2112; y_0=92
+!  width=3; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 0.00204282062299676;
+ PR(1:2) = 0.160221225333079;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 1600000;
+ T(1,1:2) = 363.15;
+ T(2,1:2) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH74
+!Name=CH74;
+!  x_0=-1432; y_0=88
+!  width=3; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 0.00204282062299676;
+ PR(1:2) = 0.160221225333079;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 1600000;
+ T(1,1:2) = 363.15;
+ T(2,1:2) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH75
+!Name=CH75;
+!  x_0=-1880; y_0=-64
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH76
+!Name=CH76;
+!  x_0=-1864; y_0=-48
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH77
+!Name=CH77;
+!  x_0=-2240; y_0=-80
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH78
+!Name=CH78;
+!  x_0=-2256; y_0=-200
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH79
+!Name=CH79;
+!  x_0=-2240; y_0=-216
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH80
+!Name=CH80;
+!  x_0=-1008; y_0=-472
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH81
+!Name=CH81;
+!  x_0=-640; y_0=-456
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH82
+!Name=CH82;
+!  x_0=-624; y_0=-472
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 530000;
+ T(1,1) = 363.15;
+ T(2,1) = 427.19;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH83
+!Name=CH83;
+!  x_0=-1640; y_0=-600
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH84
+!Name=CH84;
+!  x_0=-1210; y_0=-1554
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH85
+!Name=CH85;
+!  x_0=-1212; y_0=-1400
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH86
+!Name=CH86;
+!  x_0=-1212; y_0=-1300
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH87
+!Name=CH87;
+!  x_0=-1212; y_0=-1202
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH88
+!Name=CH88;
+!  x_0=-1212; y_0=-1060
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH89
+!Name=CH89;
+!  x_0=-1200; y_0=-1416
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH90
+!Name=CH90;
+!  x_0=-1112; y_0=-1168
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH91
+!Name=CH91;
+!  x_0=-1088; y_0=-1768
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 333.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH92
+!Name=CH92;
+!  x_0=-1212; y_0=-966
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH93
+!Name=CH93;
+!  x_0=-1228; y_0=-1316
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH94
+!Name=CH94;
+!  x_0=-1412; y_0=-1228
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH95
+!Name=CH95;
+!  x_0=-1236; y_0=-1076
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH96
+!Name=CH96;
+!  x_0=-1236; y_0=-988
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH97
+!Name=CH97;
+!  x_0=-1412; y_0=-884
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH98
+!Name=CH98;
+!  x_0=-1072; y_0=-1120
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH99
+!Name=CH99;
+!  x_0=-1072; y_0=-1048
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH100
+!Name=CH100;
+!  x_0=-528; y_0=-1576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH101
+!Name=CH101;
+!  x_0=132; y_0=-1400
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH102
+!Name=CH102;
+!  x_0=132; y_0=-1300
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH103
+!Name=CH103;
+!  x_0=132; y_0=-1202
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH104
+!Name=CH104;
+!  x_0=132; y_0=-1084
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH105
+!Name=CH105;
+!  x_0=144; y_0=-1416
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH106
+!Name=CH106;
+!  x_0=232; y_0=-1168
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH107
+!Name=CH107;
+!  x_0=256; y_0=-1768
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 333.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH108
+!Name=CH108;
+!  x_0=132; y_0=-1006
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH109
+!Name=CH109;
+!  x_0=116; y_0=-1316
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH110
+!Name=CH110;
+!  x_0=-68; y_0=-1228
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH111
+!Name=CH111;
+!  x_0=108; y_0=-1100
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH112
+!Name=CH112;
+!  x_0=108; y_0=-1028
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH113
+!Name=CH113;
+!  x_0=-68; y_0=-952
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH114
+!Name=CH114;
+!  x_0=272; y_0=-1120
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH115
+!Name=CH115;
+!  x_0=272; y_0=-1048
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH116
+!Name=CH116;
+!  x_0=-1192; y_0=-1576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH117
+!Name=CH117;
+!  x_0=-1212; y_0=-868
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH118
+!Name=CH118;
+!  x_0=-712; y_0=-1576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH119
+!Name=CH119;
+!  x_0=-552; y_0=-1560
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH120
+!Name=CH120;
+!  x_0=132; y_0=-840
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH121
+!Name=CH121;
+!  x_0=-544; y_0=-800
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH122
+!Name=CH122;
+!  x_0=132; y_0=-934
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH123
+!Name=CH123;
+!  x_0=144; y_0=-800
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH124
+!Name=CH124;
+!  x_0=536; y_0=-800
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH125
+!Name=CH125;
+!  x_0=744; y_0=-800
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH126
+!Name=CH126;
+!  x_0=728; y_0=-816
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH127
+!Name=CH127;
+!  x_0=1008; y_0=-904
+!  width=3; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00204282062299676;
+ PR(1) = 0.160221225333079;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH128
+!Name=CH128;
+!  x_0=980; y_0=-800
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH129
+!Name=CH129;
+!  x_0=772; y_0=-576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH130
+!Name=CH130;
+!  x_0=1012; y_0=-576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH131
+!Name=CH131;
+!  x_0=1030; y_0=-552
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH132
+!Name=CH132;
+!  x_0=-1368; y_0=-592
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH133
+!Name=CH133;
+!  x_0=-1856; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH134
+!Name=CH134;
+!  x_0=-1984; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH135
+!Name=CH135;
+!  x_0=-2104; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH136
+!Name=CH136;
+!  x_0=-2200; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH137
+!Name=CH137;
+!  x_0=-2328; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH138
+!Name=CH138;
+!  x_0=-2448; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH139
+!Name=CH139;
+!  x_0=-2432; y_0=-736
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 250000;
+ T(1,1) = 353.15;
+ T(2,1) = 400.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH140
+!Name=CH140;
+!  x_0=-2616; y_0=-720
+!  width=5; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.00057255526111674;
+ PR(1) = 0.0848230016469244;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH141
+!Name=CH141;
+!  x_0=-2312; y_0=-704
+!  width=2; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 2.82743338823081E-5;
+ PR(1:2) = 0.0188495559215388;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 17640000;
+ T(1,1:2) = 393.15;
+ T(2,1:2) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH142
+!Name=CH142;
+!  x_0=-2184; y_0=-704
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.000132732289614169;
+ PR(1) = 0.0408407044966673;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 250000;
+ T(1,1) = 353.15;
+ T(2,1) = 400.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH143
+!Name=CH143;
+!  x_0=-1840; y_0=-704
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH144
+!Name=CH144;
+!  x_0=-1968; y_0=-736
+!  width=2; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 2.82743338823081E-5;
+ PR(1:2) = 0.0188495559215388;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 17640000;
+ T(1,1:2) = 393.15;
+ T(2,1:2) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH145
+!Name=CH145;
+!  x_0=-2088; y_0=-736
+!  width=2; height=
+ !DZsum=2; DHsum=0
+ N=2;
+ S(1:2) = 2.82743338823081E-5;
+ PR(1:2) = 0.0188495559215388;
+ DZ(1:2) = 1;
+ DH(1:2) = 0;
+ ROU(1:2) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1:2) = 0;
+ P(1:2) = 17640000;
+ T(1,1:2) = 393.15;
+ T(2,1:2) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1:2) = 0;
+ XB(1:2) = 0.007;
+ MBW(1:2) = 0;
+ XNG(1,1:2) = 0;
+ XNG(2,1:2) = 0;
+ XNG(3,1:2) = 0;
+ XNG(4,1:2) = 0;
+ XNF(1,1:2) = 0;
+ XNF(2,1:2) = 0;
+ XNF(3,1:2) = 0;
+ XNF(4,1:2) = 0;
+END
+
+data CH146
+!Name=CH146;
+!  x_0=-1952; y_0=-1032
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 17640000;
+ T(1,1) = 393.15;
+ T(2,1) = 628.47;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH147
+!Name=CH147;
+!  x_0=-728; y_0=-1592
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH148
+!Name=CH148;
+!  x_0=640; y_0=-576
+!  width=4; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 0.0075429639612691;
+ PR(1) = 0.3078760800518;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH149
+!Name=CH149;
+!  x_0=656; y_0=-592
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 363.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH150
+!Name=CH150;
+!  x_0=520; y_0=-784
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH151
+!Name=CH151;
+!  x_0=504; y_0=-656
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH152
+!Name=CH152;
+!  x_0=144; y_0=-864
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH153
+!Name=CH153;
+!  x_0=224; y_0=-656
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 2.82743338823081E-5;
+ PR(1) = 0.0188495559215388;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 1600000;
+ T(1,1) = 333.15;
+ T(2,1) = 474.52;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data CH154
+!Name=CH154;
+!  x_0=856; y_0=-856
+!  width=2; height=
+ !DZsum=1; DHsum=0
+ N=1;
+ S(1) = 7.85398163397448E-5;
+ PR(1) = 0.0314159265358979;
+ DZ(1) = 1;
+ DH(1) = 0;
+ ROU(1) = 1E-6;
+ JIN=0.5;
+ JOU=0.5;
+ TYPE(1) = 0;
+ P(1) = 800000;
+ T(1,1) = 333.15;
+ T(2,1) = 443.56;
+ SRE(1)=1;
+ SRE(2)=1;
+ VOID(1) = 0;
+ XB(1) = 0.007;
+ MBW(1) = 0;
+ XNG(1,1) = 0;
+ XNG(2,1) = 0;
+ XNG(3,1) = 0;
+ XNG(4,1) = 0;
+ XNF(1,1) = 0;
+ XNF(2,1) = 0;
+ XNF(3,1) = 0;
+ XNF(4,1) = 0;
+END
+
+data COL1
+!Name=COL1;
+!  x_0=194; y_0=120
+!  width=36; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=16000000;
+ T(1)=601.15;
+ T(2)=620.5;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL2
+!Name=COL2;
+!  x_0=288; y_0=256
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL3
+!Name=COL3;
+!  x_0=16; y_0=408
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL4
+!Name=COL4;
+!  x_0=16; y_0=288
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL5
+!Name=COL5;
+!  x_0=-112; y_0=288
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL6
+!Name=COL6;
+!  x_0=16; y_0=504
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL7
+!Name=COL7;
+!  x_0=480; y_0=-320
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=530000;
+ T(1)=363.15;
+ T(2)=427.19;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL8
+!Name=COL8;
+!  x_0=-926; y_0=88
+!  width=36; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=150000;
+ T(1)=363.15;
+ T(2)=384.49;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL9
+!Name=COL9;
+!  x_0=-832; y_0=224
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL10
+!Name=COL10;
+!  x_0=-1104; y_0=376
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL11
+!Name=COL11;
+!  x_0=-1104; y_0=256
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL12
+!Name=COL12;
+!  x_0=-1232; y_0=256
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL13
+!Name=COL13;
+!  x_0=-1104; y_0=472
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=800000;
+ T(1)=298.15;
+ T(2)=443.56;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL14
+!Name=COL14;
+!  x_0=-640; y_0=-352
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=530000;
+ T(1)=363.15;
+ T(2)=427.19;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL15
+!Name=COL15;
+!  x_0=460; y_0=408
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=150000;
+ T(1)=363.15;
+ T(2)=384.49;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL16
+!Name=COL16;
+!  x_0=-660; y_0=560
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=150000;
+ T(1)=363.15;
+ T(2)=384.49;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL17
+!Name=COL17;
+!  x_0=-254; y_0=562
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=150000;
+ T(1)=363.15;
+ T(2)=384.49;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL18
+!Name=COL18;
+!  x_0=-664; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=530000;
+ T(1)=363.15;
+ T(2)=427.19;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL19
+!Name=COL19;
+!  x_0=456; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=530000;
+ T(1)=363.15;
+ T(2)=427.19;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL20
+!Name=COL20;
+!  x_0=-1368; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL21
+!Name=COL21;
+!  x_0=-1640; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL22
+!Name=COL22;
+!  x_0=-1640; y_0=-412
+!  width=24; height=24
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL23
+!Name=COL23;
+!  x_0=-1640; y_0=-112
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL24
+!Name=COL24;
+!  x_0=-1416; y_0=88
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL25
+!Name=COL25;
+!  x_0=-1416; y_0=312
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=700000;
+ T(1)=363.15;
+ T(2)=438.1;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL26
+!Name=COL26;
+!  x_0=-1776; y_0=528
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=700000;
+ T(1)=363.15;
+ T(2)=438.1;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL27
+!Name=COL27;
+!  x_0=-1776; y_0=664
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=700000;
+ T(1)=363.15;
+ T(2)=438.1;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL28
+!Name=COL28;
+!  x_0=-1776; y_0=768
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=700000;
+ T(1)=363.15;
+ T(2)=438.1;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL29
+!Name=COL29;
+!  x_0=-2088; y_0=328
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=700000;
+ T(1)=363.15;
+ T(2)=438.1;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL30
+!Name=COL30;
+!  x_0=-2088; y_0=92
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL31
+!Name=COL31;
+!  x_0=-1864; y_0=-64
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL32
+!Name=COL32;
+!  x_0=-2240; y_0=-64
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL33
+!Name=COL33;
+!  x_0=-2240; y_0=-200
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL34
+!Name=COL34;
+!  x_0=-640; y_0=-472
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=530000;
+ T(1)=363.15;
+ T(2)=427.19;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL35
+!Name=COL35;
+!  x_0=-1208; y_0=-1576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL36
+!Name=COL36;
+!  x_0=-1212; y_0=-1412
+!  width=24; height=24
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL37
+!Name=COL37;
+!  x_0=-1212; y_0=-1316
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL38
+!Name=COL38;
+!  x_0=-1212; y_0=-1228
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL39
+!Name=COL39;
+!  x_0=-1212; y_0=-1076
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL40
+!Name=COL40;
+!  x_0=-1212; y_0=-988
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL41
+!Name=COL41;
+!  x_0=-1072; y_0=-1768
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL42
+!Name=COL42;
+!  x_0=-1212; y_0=-884
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL43
+!Name=COL43;
+!  x_0=132; y_0=-1412
+!  width=24; height=24
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL44
+!Name=COL44;
+!  x_0=132; y_0=-1316
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL45
+!Name=COL45;
+!  x_0=132; y_0=-1228
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL46
+!Name=COL46;
+!  x_0=132; y_0=-1100
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL47
+!Name=COL47;
+!  x_0=132; y_0=-1028
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL48
+!Name=COL48;
+!  x_0=272; y_0=-1768
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL49
+!Name=COL49;
+!  x_0=132; y_0=-952
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL50
+!Name=COL50;
+!  x_0=-552; y_0=-1576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL51
+!Name=COL51;
+!  x_0=-560; y_0=-800
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL52
+!Name=COL52;
+!  x_0=-728; y_0=-1576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL53
+!Name=COL53;
+!  x_0=132; y_0=-800
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL54
+!Name=COL54;
+!  x_0=132; y_0=-860
+!  width=24; height=24
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL55
+!Name=COL55;
+!  x_0=520; y_0=-800
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL56
+!Name=COL56;
+!  x_0=724; y_0=-800
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL57
+!Name=COL57;
+!  x_0=964; y_0=-800
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL58
+!Name=COL58;
+!  x_0=1030; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL59
+!Name=COL59;
+!  x_0=796; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL60
+!Name=COL60;
+!  x_0=-1840; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL61
+!Name=COL61;
+!  x_0=-1968; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL62
+!Name=COL62;
+!  x_0=-2088; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL63
+!Name=COL63;
+!  x_0=-2184; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL64
+!Name=COL64;
+!  x_0=-2312; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL65
+!Name=COL65;
+!  x_0=-2432; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL66
+!Name=COL66;
+!  x_0=-2600; y_0=-720
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL67
+!Name=COL67;
+!  x_0=-1968; y_0=-1032
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=17640000;
+ T(1)=393.15;
+ T(2)=628.47;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL68
+!Name=COL68;
+!  x_0=652; y_0=-576
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL69
+!Name=COL69;
+!  x_0=516; y_0=-656
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=363.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data COL70
+!Name=COL70;
+!  x_0=244; y_0=-656
+!  width=32; height=32
+ S=0.1;
+ DZ=0.1;
+ OR = 0;
+ TYPE=0;
+ D=0.1;
+ P=1600000;
+ T(1)=333.15;
+ T(2)=474.52;
+ VOID=0;
+ XB=0.007;
+ MBW=0;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data CPUMP1
+!Name=CPUMP1;
+!  x_0=712; y_0=-56
+!  width=32; height=32
+ NM1=3;
+ NM2=3;
+ NM3=3;
+ NM4=3;
+ NP1=3;
+ NP2=3;
+ NP3=3;
+ NP4=3;
+ NKH=2;
+ NKM=2;
+ OR=0;
+ CM1(1,1) = -1;
+ CM1(1,2) = 0;
+ CM1(1,3) = 1;
+ CM1(2,1) = -1;
+ CM1(2,2) = 0;
+ CM1(2,3) = 1;
+ CM1(3,1) = -1;
+ CM1(3,2) = 0;
+ CM1(3,3) = 1;
+ CM2(1,1) = -1;
+ CM2(1,2) = 0;
+ CM2(1,3) = 1;
+ CM2(2,1) = -1;
+ CM2(2,2) = 0;
+ CM2(2,3) = 1;
+ CM2(3,1) = -1;
+ CM2(3,2) = 0;
+ CM2(3,3) = 1;
+ CM3(1,1) = -1;
+ CM3(1,2) = 0;
+ CM3(1,3) = 1;
+ CM3(2,1) = -1;
+ CM3(2,2) = 0;
+ CM3(2,3) = 1;
+ CM3(3,1) = -1;
+ CM3(3,2) = 0;
+ CM3(3,3) = 1;
+ CM4(1,1) = -1;
+ CM4(1,2) = 0;
+ CM4(1,3) = 1;
+ CM4(2,1) = -1;
+ CM4(2,2) = 0;
+ CM4(2,3) = 1;
+ CM4(3,1) = -1;
+ CM4(3,2) = 0;
+ CM4(3,3) = 1;
+ CP1(1,1) = -1;
+ CP1(1,2) = 0;
+ CP1(1,3) = 1;
+ CP1(2,1) = -1;
+ CP1(2,2) = 0;
+ CP1(2,3) = 1;
+ CP1(3,1) = -1;
+ CP1(3,2) = 0;
+ CP1(3,3) = 1;
+ CP2(1,1) = -1;
+ CP2(1,2) = 0;
+ CP2(1,3) = 1;
+ CP2(2,1) = -1;
+ CP2(2,2) = 0;
+ CP2(2,3) = 1;
+ CP2(3,1) = -1;
+ CP2(3,2) = 0;
+ CP2(3,3) = 1;
+ CP3(1,1) = -1;
+ CP3(1,2) = 0;
+ CP3(1,3) = 1;
+ CP3(2,1) = -1;
+ CP3(2,2) = 0;
+ CP3(2,3) = 1;
+ CP3(3,1) = -1;
+ CP3(3,2) = 0;
+ CP3(3,3) = 1;
+ CP4(1,1) = -1;
+ CP4(1,2) = 0;
+ CP4(1,3) = 1;
+ CP4(2,1) = -1;
+ CP4(2,2) = 0;
+ CP4(2,3) = 1;
+ CP4(3,1) = -1;
+ CP4(3,2) = 0;
+ CP4(3,3) = 1;
+ TYPE=0;
+ KH(1,1:2) = 0;
+ KH(2,1:2) = 0;
+ KM(1,1:2) = 0;
+ KM(2,1:2) = 0;
+ REVN=2;
+ QN=1;
+ DPN=10000;
+ EFF1=0.9;
+ EFF=1;
+ HMOM=1;
+ J=100000000;
+ F=0;
+ D=1;
+ K=0;
+ REV0=0.001;
+ REV=0;
+ HVAC=0;
+ PEXP=101325;
+ TEXP=293.15;
+ DIAM=2;
+ MODE=0;
+END
+
+data CPUMP2
+!Name=CPUMP2;
+!  x_0=-416; y_0=-80
+!  width=32; height=32
+ NM1=3;
+ NM2=3;
+ NM3=3;
+ NM4=3;
+ NP1=3;
+ NP2=3;
+ NP3=3;
+ NP4=3;
+ NKH=2;
+ NKM=2;
+ OR=0;
+ CM1(1,1) = -1;
+ CM1(1,2) = 0;
+ CM1(1,3) = 1;
+ CM1(2,1) = -1;
+ CM1(2,2) = 0;
+ CM1(2,3) = 1;
+ CM1(3,1) = -1;
+ CM1(3,2) = 0;
+ CM1(3,3) = 1;
+ CM2(1,1) = -1;
+ CM2(1,2) = 0;
+ CM2(1,3) = 1;
+ CM2(2,1) = -1;
+ CM2(2,2) = 0;
+ CM2(2,3) = 1;
+ CM2(3,1) = -1;
+ CM2(3,2) = 0;
+ CM2(3,3) = 1;
+ CM3(1,1) = -1;
+ CM3(1,2) = 0;
+ CM3(1,3) = 1;
+ CM3(2,1) = -1;
+ CM3(2,2) = 0;
+ CM3(2,3) = 1;
+ CM3(3,1) = -1;
+ CM3(3,2) = 0;
+ CM3(3,3) = 1;
+ CM4(1,1) = -1;
+ CM4(1,2) = 0;
+ CM4(1,3) = 1;
+ CM4(2,1) = -1;
+ CM4(2,2) = 0;
+ CM4(2,3) = 1;
+ CM4(3,1) = -1;
+ CM4(3,2) = 0;
+ CM4(3,3) = 1;
+ CP1(1,1) = -1;
+ CP1(1,2) = 0;
+ CP1(1,3) = 1;
+ CP1(2,1) = -1;
+ CP1(2,2) = 0;
+ CP1(2,3) = 1;
+ CP1(3,1) = -1;
+ CP1(3,2) = 0;
+ CP1(3,3) = 1;
+ CP2(1,1) = -1;
+ CP2(1,2) = 0;
+ CP2(1,3) = 1;
+ CP2(2,1) = -1;
+ CP2(2,2) = 0;
+ CP2(2,3) = 1;
+ CP2(3,1) = -1;
+ CP2(3,2) = 0;
+ CP2(3,3) = 1;
+ CP3(1,1) = -1;
+ CP3(1,2) = 0;
+ CP3(1,3) = 1;
+ CP3(2,1) = -1;
+ CP3(2,2) = 0;
+ CP3(2,3) = 1;
+ CP3(3,1) = -1;
+ CP3(3,2) = 0;
+ CP3(3,3) = 1;
+ CP4(1,1) = -1;
+ CP4(1,2) = 0;
+ CP4(1,3) = 1;
+ CP4(2,1) = -1;
+ CP4(2,2) = 0;
+ CP4(2,3) = 1;
+ CP4(3,1) = -1;
+ CP4(3,2) = 0;
+ CP4(3,3) = 1;
+ TYPE=0;
+ KH(1,1:2) = 0;
+ KH(2,1:2) = 0;
+ KM(1,1:2) = 0;
+ KM(2,1:2) = 0;
+ REVN=2;
+ QN=1;
+ DPN=10000;
+ EFF1=0.9;
+ EFF=1;
+ HMOM=1;
+ J=100000000;
+ F=0;
+ D=1;
+ K=0;
+ REV0=0.001;
+ REV=0;
+ HVAC=0;
+ PEXP=101325;
+ TEXP=293.15;
+ DIAM=2;
+ MODE=0;
+END
+
+data CPUMP3
+!Name=CPUMP3;
+!  x_0=-1416; y_0=376
+!  width=32; height=32
+ NM1=3;
+ NM2=3;
+ NM3=3;
+ NM4=3;
+ NP1=3;
+ NP2=3;
+ NP3=3;
+ NP4=3;
+ NKH=2;
+ NKM=2;
+ OR=0;
+ CM1(1,1) = -1;
+ CM1(1,2) = 0;
+ CM1(1,3) = 1;
+ CM1(2,1) = -1;
+ CM1(2,2) = 0;
+ CM1(2,3) = 1;
+ CM1(3,1) = -1;
+ CM1(3,2) = 0;
+ CM1(3,3) = 1;
+ CM2(1,1) = -1;
+ CM2(1,2) = 0;
+ CM2(1,3) = 1;
+ CM2(2,1) = -1;
+ CM2(2,2) = 0;
+ CM2(2,3) = 1;
+ CM2(3,1) = -1;
+ CM2(3,2) = 0;
+ CM2(3,3) = 1;
+ CM3(1,1) = -1;
+ CM3(1,2) = 0;
+ CM3(1,3) = 1;
+ CM3(2,1) = -1;
+ CM3(2,2) = 0;
+ CM3(2,3) = 1;
+ CM3(3,1) = -1;
+ CM3(3,2) = 0;
+ CM3(3,3) = 1;
+ CM4(1,1) = -1;
+ CM4(1,2) = 0;
+ CM4(1,3) = 1;
+ CM4(2,1) = -1;
+ CM4(2,2) = 0;
+ CM4(2,3) = 1;
+ CM4(3,1) = -1;
+ CM4(3,2) = 0;
+ CM4(3,3) = 1;
+ CP1(1,1) = -1;
+ CP1(1,2) = 0;
+ CP1(1,3) = 1;
+ CP1(2,1) = -1;
+ CP1(2,2) = 0;
+ CP1(2,3) = 1;
+ CP1(3,1) = -1;
+ CP1(3,2) = 0;
+ CP1(3,3) = 1;
+ CP2(1,1) = -1;
+ CP2(1,2) = 0;
+ CP2(1,3) = 1;
+ CP2(2,1) = -1;
+ CP2(2,2) = 0;
+ CP2(2,3) = 1;
+ CP2(3,1) = -1;
+ CP2(3,2) = 0;
+ CP2(3,3) = 1;
+ CP3(1,1) = -1;
+ CP3(1,2) = 0;
+ CP3(1,3) = 1;
+ CP3(2,1) = -1;
+ CP3(2,2) = 0;
+ CP3(2,3) = 1;
+ CP3(3,1) = -1;
+ CP3(3,2) = 0;
+ CP3(3,3) = 1;
+ CP4(1,1) = -1;
+ CP4(1,2) = 0;
+ CP4(1,3) = 1;
+ CP4(2,1) = -1;
+ CP4(2,2) = 0;
+ CP4(2,3) = 1;
+ CP4(3,1) = -1;
+ CP4(3,2) = 0;
+ CP4(3,3) = 1;
+ TYPE=0;
+ KH(1,1:2) = 0;
+ KH(2,1:2) = 0;
+ KM(1,1:2) = 0;
+ KM(2,1:2) = 0;
+ REVN=2;
+ QN=1;
+ DPN=10000;
+ EFF1=0.9;
+ EFF=1;
+ HMOM=1;
+ J=100000000;
+ F=0;
+ D=1;
+ K=0;
+ REV0=0.001;
+ REV=0;
+ HVAC=0;
+ PEXP=101325;
+ TEXP=293.15;
+ DIAM=2;
+ MODE=0;
+END
+
+data CPUMP4
+!Name=CPUMP4;
+!  x_0=-2088; y_0=384
+!  width=32; height=32
+ NM1=3;
+ NM2=3;
+ NM3=3;
+ NM4=3;
+ NP1=3;
+ NP2=3;
+ NP3=3;
+ NP4=3;
+ NKH=2;
+ NKM=2;
+ OR=0;
+ CM1(1,1) = -1;
+ CM1(1,2) = 0;
+ CM1(1,3) = 1;
+ CM1(2,1) = -1;
+ CM1(2,2) = 0;
+ CM1(2,3) = 1;
+ CM1(3,1) = -1;
+ CM1(3,2) = 0;
+ CM1(3,3) = 1;
+ CM2(1,1) = -1;
+ CM2(1,2) = 0;
+ CM2(1,3) = 1;
+ CM2(2,1) = -1;
+ CM2(2,2) = 0;
+ CM2(2,3) = 1;
+ CM2(3,1) = -1;
+ CM2(3,2) = 0;
+ CM2(3,3) = 1;
+ CM3(1,1) = -1;
+ CM3(1,2) = 0;
+ CM3(1,3) = 1;
+ CM3(2,1) = -1;
+ CM3(2,2) = 0;
+ CM3(2,3) = 1;
+ CM3(3,1) = -1;
+ CM3(3,2) = 0;
+ CM3(3,3) = 1;
+ CM4(1,1) = -1;
+ CM4(1,2) = 0;
+ CM4(1,3) = 1;
+ CM4(2,1) = -1;
+ CM4(2,2) = 0;
+ CM4(2,3) = 1;
+ CM4(3,1) = -1;
+ CM4(3,2) = 0;
+ CM4(3,3) = 1;
+ CP1(1,1) = -1;
+ CP1(1,2) = 0;
+ CP1(1,3) = 1;
+ CP1(2,1) = -1;
+ CP1(2,2) = 0;
+ CP1(2,3) = 1;
+ CP1(3,1) = -1;
+ CP1(3,2) = 0;
+ CP1(3,3) = 1;
+ CP2(1,1) = -1;
+ CP2(1,2) = 0;
+ CP2(1,3) = 1;
+ CP2(2,1) = -1;
+ CP2(2,2) = 0;
+ CP2(2,3) = 1;
+ CP2(3,1) = -1;
+ CP2(3,2) = 0;
+ CP2(3,3) = 1;
+ CP3(1,1) = -1;
+ CP3(1,2) = 0;
+ CP3(1,3) = 1;
+ CP3(2,1) = -1;
+ CP3(2,2) = 0;
+ CP3(2,3) = 1;
+ CP3(3,1) = -1;
+ CP3(3,2) = 0;
+ CP3(3,3) = 1;
+ CP4(1,1) = -1;
+ CP4(1,2) = 0;
+ CP4(1,3) = 1;
+ CP4(2,1) = -1;
+ CP4(2,2) = 0;
+ CP4(2,3) = 1;
+ CP4(3,1) = -1;
+ CP4(3,2) = 0;
+ CP4(3,3) = 1;
+ TYPE=0;
+ KH(1,1:2) = 0;
+ KH(2,1:2) = 0;
+ KM(1,1:2) = 0;
+ KM(2,1:2) = 0;
+ REVN=2;
+ QN=1;
+ DPN=10000;
+ EFF1=0.9;
+ EFF=1;
+ HMOM=1;
+ J=100000000;
+ F=0;
+ D=1;
+ K=0;
+ REV0=0.001;
+ REV=0;
+ HVAC=0;
+ PEXP=101325;
+ TEXP=293.15;
+ DIAM=2;
+ MODE=0;
+END
+
+data BVOL_T1
+!Name=BVOL_T1;
+!  x_0=260; y_0=-8
+!  width=48; height=48
+ P=100000;
+ VOID=0;
+ T(1)=300;
+ T(2)=300.15;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T2
+!Name=BVOL_T2;
+!  x_0=260; y_0=-104
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T3
+!Name=BVOL_T3;
+!  x_0=260; y_0=-180
+!  width=48; height=48
+ P=600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=431.98;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T4
+!Name=BVOL_T4;
+!  x_0=260; y_0=-256
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=393.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T5
+!Name=BVOL_T5;
+!  x_0=256; y_0=-320
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=393.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T6
+!Name=BVOL_T6;
+!  x_0=76; y_0=-24
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T7
+!Name=BVOL_T7;
+!  x_0=622; y_0=154
+!  width=68; height=52
+ P=150000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T8
+!Name=BVOL_T8;
+!  x_0=400; y_0=256
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T9
+!Name=BVOL_T9;
+!  x_0=400; y_0=312
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T10
+!Name=BVOL_T10;
+!  x_0=-860; y_0=-40
+!  width=48; height=48
+ P=600000;
+ VOID=0;
+ T(1)=353.15;
+ T(2)=431.98;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T11
+!Name=BVOL_T11;
+!  x_0=-860; y_0=-136
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T12
+!Name=BVOL_T12;
+!  x_0=-860; y_0=-212
+!  width=48; height=48
+ P=600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=431.98;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T13
+!Name=BVOL_T13;
+!  x_0=-860; y_0=-288
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=393.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T14
+!Name=BVOL_T14;
+!  x_0=-864; y_0=-352
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=393.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T15
+!Name=BVOL_T15;
+!  x_0=-1044; y_0=-56
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T16
+!Name=BVOL_T16;
+!  x_0=-516; y_0=124
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T17
+!Name=BVOL_T17;
+!  x_0=-720; y_0=224
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T18
+!Name=BVOL_T18;
+!  x_0=-720; y_0=280
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=298.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T19
+!Name=BVOL_T19;
+!  x_0=648; y_0=408
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T20
+!Name=BVOL_T20;
+!  x_0=-852; y_0=640
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T21
+!Name=BVOL_T21;
+!  x_0=-336; y_0=648
+!  width=48; height=48
+ P=150000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=384.49;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T22
+!Name=BVOL_T22;
+!  x_0=-1488; y_0=-416
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T23
+!Name=BVOL_T23;
+!  x_0=-1608; y_0=664
+!  width=48; height=48
+ P=700000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=438.1;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T24
+!Name=BVOL_T24;
+!  x_0=-1980; y_0=768
+!  width=48; height=48
+ P=700000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=438.1;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T25
+!Name=BVOL_T25;
+!  x_0=-1980; y_0=880
+!  width=48; height=48
+ P=700000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=438.1;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T26
+!Name=BVOL_T26;
+!  x_0=-2150; y_0=-336
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T27
+!Name=BVOL_T27;
+!  x_0=-1044; y_0=-472
+!  width=48; height=48
+ P=530000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=427.19;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T28
+!Name=BVOL_T28;
+!  x_0=-1136; y_0=-1168
+!  width=32; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T29
+!Name=BVOL_T29;
+!  x_0=-1268; y_0=-1768
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T30
+!Name=BVOL_T30;
+!  x_0=-1432; y_0=-1316
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T31
+!Name=BVOL_T31;
+!  x_0=-1434; y_0=-1226
+!  width=44; height=52
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T32
+!Name=BVOL_T32;
+!  x_0=-1440; y_0=-1076
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T33
+!Name=BVOL_T33;
+!  x_0=-1440; y_0=-988
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T34
+!Name=BVOL_T34;
+!  x_0=-1436; y_0=-884
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T35
+!Name=BVOL_T35;
+!  x_0=-1048; y_0=-1120
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T36
+!Name=BVOL_T36;
+!  x_0=-1048; y_0=-1048
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T37
+!Name=BVOL_T37;
+!  x_0=208; y_0=-1168
+!  width=32; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T38
+!Name=BVOL_T38;
+!  x_0=76; y_0=-1768
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T39
+!Name=BVOL_T39;
+!  x_0=-88; y_0=-1316
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T40
+!Name=BVOL_T40;
+!  x_0=-92; y_0=-1228
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T41
+!Name=BVOL_T41;
+!  x_0=-96; y_0=-1100
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T42
+!Name=BVOL_T42;
+!  x_0=-96; y_0=-1028
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T43
+!Name=BVOL_T43;
+!  x_0=-92; y_0=-952
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T44
+!Name=BVOL_T44;
+!  x_0=296; y_0=-1120
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T45
+!Name=BVOL_T45;
+!  x_0=296; y_0=-1048
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T46
+!Name=BVOL_T46;
+!  x_0=536; y_0=-1016
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T47
+!Name=BVOL_T47;
+!  x_0=1032; y_0=-904
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T48
+!Name=BVOL_T48;
+!  x_0=-2752; y_0=-720
+!  width=48; height=48
+ P=17640000;
+ VOID=0;
+ T(1)=393.15;
+ T(2)=628.47;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T49
+!Name=BVOL_T49;
+!  x_0=-2348; y_0=-556
+!  width=48; height=48
+ P=250000;
+ VOID=0;
+ T(1)=353.15;
+ T(2)=400.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T50
+!Name=BVOL_T50;
+!  x_0=-2040; y_0=-560
+!  width=48; height=48
+ P=1600000;
+ VOID=0;
+ T(1)=363.15;
+ T(2)=474.52;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T51
+!Name=BVOL_T51;
+!  x_0=832; y_0=-856
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data BVOL_T52
+!Name=BVOL_T52;
+!  x_0=992; y_0=-1088
+!  width=48; height=48
+ P=800000;
+ VOID=0;
+ T(1)=333.15;
+ T(2)=443.56;
+ XB=0;
+ XNG(1)=0;
+ XNG(2)=0;
+ XNG(3)=0;
+ XNG(4)=0;
+ XNF(1)=0;
+ XNF(2)=0;
+ XNF(3)=0;
+ XNF(4)=0;
+END
+
+data TANK1
+!Name=TANK1;
+!  x_0=16; y_0=896
+!  width=112; height=104
+ NH=1;
+ HP(1:2) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data TANK2
+!Name=TANK2;
+!  x_0=-1104; y_0=864
+!  width=112; height=104
+ NH=1;
+ HP(1:2) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data TANK3
+!Name=TANK3;
+!  x_0=-1752; y_0=312
+!  width=112; height=104
+ NH=1;
+ HP(1:3) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data TANK4
+!Name=TANK4;
+!  x_0=-2400; y_0=-8
+!  width=112; height=104
+ NH=1;
+ HP(1) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data TANK5
+!Name=TANK5;
+!  x_0=-568; y_0=-656
+!  width=112; height=104
+ NH=1;
+ HP(1:3) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data TANK6
+!Name=TANK6;
+!  x_0=-2856; y_0=-640
+!  width=112; height=104
+ NH=1;
+ HP(1) = 0;
+ H(1) = 1;
+ H(2) = 2;
+ V(1:2) = 1;
+ D=0;
+ PA=100000;
+ PV=100000;
+ TENV=300;
+ HL=1;
+ TL=300;
+ XB=0;
+ MBW=0;
+END
+
+data LR1
+!Name=LR1;
+!  x_0=712; y_0=-216
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR2
+!Name=LR2;
+!  x_0=-416; y_0=-240
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR3
+!Name=LR3;
+!  x_0=-1416; y_0=8
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR4
+!Name=LR4;
+!  x_0=-2088; y_0=40
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR5
+!Name=LR5;
+!  x_0=-1528; y_0=0
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR6
+!Name=LR6;
+!  x_0=-2240; y_0=40
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR7
+!Name=LR7;
+!  x_0=-1216; y_0=-1160
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR8
+!Name=LR8;
+!  x_0=134; y_0=-1158
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR9
+!Name=LR9;
+!  x_0=856; y_0=-800
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR10
+!Name=LR10;
+!  x_0=-2524; y_0=-720
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data LR11
+!Name=LR11;
+!  x_0=912; y_0=-576
+!  width=32; height=32
+ CSI1=0;
+ CSI2=100000000;
+END
+
+data VAL1
+!Name=VAL1;
+!  x_0=136; y_0=256
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL2
+!Name=VAL2;
+!  x_0=16; y_0=208
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL3
+!Name=VAL3;
+!  x_0=-112; y_0=200
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL4
+!Name=VAL4;
+!  x_0=280; y_0=440
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL5
+!Name=VAL5;
+!  x_0=712; y_0=-136
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL6
+!Name=VAL6;
+!  x_0=712; y_0=-280
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL7
+!Name=VAL7;
+!  x_0=456; y_0=-514
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL8
+!Name=VAL8;
+!  x_0=-984; y_0=224
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL9
+!Name=VAL9;
+!  x_0=-1104; y_0=176
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL10
+!Name=VAL10;
+!  x_0=-1232; y_0=168
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL11
+!Name=VAL11;
+!  x_0=-840; y_0=408
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL12
+!Name=VAL12;
+!  x_0=-416; y_0=-160
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL13
+!Name=VAL13;
+!  x_0=-416; y_0=-304
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL14
+!Name=VAL14;
+!  x_0=-664; y_0=-520
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL15
+!Name=VAL15;
+!  x_0=552; y_0=408
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL16
+!Name=VAL16;
+!  x_0=232; y_0=560
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL17
+!Name=VAL17;
+!  x_0=-544; y_0=560
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL18
+!Name=VAL18;
+!  x_0=-752; y_0=640
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL19
+!Name=VAL19;
+!  x_0=-1496; y_0=-576
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL20
+!Name=VAL20;
+!  x_0=-1640; y_0=-256
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL21
+!Name=VAL21;
+!  x_0=-1416; y_0=-56
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL22
+!Name=VAL22;
+!  x_0=-1576; y_0=312
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL23
+!Name=VAL23;
+!  x_0=-1416; y_0=480
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL24
+!Name=VAL24;
+!  x_0=-1952; y_0=328
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL25
+!Name=VAL25;
+!  x_0=-2088; y_0=-8
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL26
+!Name=VAL26;
+!  x_0=-1688; y_0=-64
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL27
+!Name=VAL27;
+!  x_0=-2240; y_0=0
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL28
+!Name=VAL28;
+!  x_0=-2368; y_0=-140
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL29
+!Name=VAL29;
+!  x_0=-2240; y_0=-136
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL30
+!Name=VAL30;
+!  x_0=-2240; y_0=-280
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL31
+!Name=VAL31;
+!  x_0=-1864; y_0=-16
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL32
+!Name=VAL32;
+!  x_0=-640; y_0=-416
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL33
+!Name=VAL33;
+!  x_0=480; y_0=-424
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL34
+!Name=VAL34;
+!  x_0=-1074; y_0=-1658
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL35
+!Name=VAL35;
+!  x_0=-996; y_0=-1700
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL36
+!Name=VAL36;
+!  x_0=-1210; y_0=-1494
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL37
+!Name=VAL37;
+!  x_0=270; y_0=-1658
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL38
+!Name=VAL38;
+!  x_0=348; y_0=-1700
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL39
+!Name=VAL39;
+!  x_0=130; y_0=-1494
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL40
+!Name=VAL40;
+!  x_0=132; y_0=-908
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL41
+!Name=VAL41;
+!  x_0=-2512; y_0=-832
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL42
+!Name=VAL42;
+!  x_0=-2528; y_0=-640
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL43
+!Name=VAL43;
+!  x_0=-2416; y_0=-640
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL44
+!Name=VAL44;
+!  x_0=-2248; y_0=-552
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL45
+!Name=VAL45;
+!  x_0=-1920; y_0=-560
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL46
+!Name=VAL46;
+!  x_0=-808; y_0=-1576
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL47
+!Name=VAL47;
+!  x_0=-368; y_0=-800
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL48
+!Name=VAL48;
+!  x_0=416; y_0=-800
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL49
+!Name=VAL49;
+!  x_0=912; y_0=-504
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL50
+!Name=VAL50;
+!  x_0=-1640; y_0=-788
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL51
+!Name=VAL51;
+!  x_0=-1968; y_0=-872
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL52
+!Name=VAL52;
+!  x_0=-2088; y_0=-872
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL53
+!Name=VAL53;
+!  x_0=-2088; y_0=-952
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL54
+!Name=VAL54;
+!  x_0=-1968; y_0=-952
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL55
+!Name=VAL55;
+!  x_0=-728; y_0=-1680
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL56
+!Name=VAL56;
+!  x_0=518; y_0=-728
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL57
+!Name=VAL57;
+!  x_0=244; y_0=-748
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL58
+!Name=VAL58;
+!  x_0=600; y_0=-656
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL59
+!Name=VAL59;
+!  x_0=-2088; y_0=480
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL60
+!Name=VAL60;
+!  x_0=-2368; y_0=-720
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL61
+!Name=VAL61;
+!  x_0=-1896; y_0=-720
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL62
+!Name=VAL62;
+!  x_0=-552; y_0=-1432
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL63
+!Name=VAL63;
+!  x_0=872; y_0=-992
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data VAL64
+!Name=VAL64;
+!  x_0=1032; y_0=-688
+!  width=48; height=40
+ K=2;
+ F(1,1) = 0;
+ F(2,1) = 1;
+ F(1:2,2) = 0;
+ F(1:2,3) = 0;
+ CSI1=1;
+ CSI2=0;
+ S=0;
+ LS(1:2) = 0;
+END
+
+data SLVES1
+!Name=SLVES1;
+!  x_0=424; y_0=120
+!  width=112; height=104
+ NH=1;
+ HP(1:11) = 0;
+ H(1) = 1;
+ V(1) = 190;
+ HD(1) = 0.01;
+ HU(1) = 0.1;
+ D=0;
+ P=100000;
+ HL=1E-12;
+ T(1)=300;
+ T(2)=300;
+ XB=0;
+ MBW=0;
+ C=1;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+data SLVES2
+!Name=SLVES2;
+!  x_0=-696; y_0=88
+!  width=112; height=104
+ NH=1;
+ HP(1:11) = 0;
+ H(1) = 1;
+ V(1) = 190;
+ HD(1) = 0.01;
+ HU(1) = 0.1;
+ D=0;
+ P=100000;
+ HL=1E-12;
+ T(1)=300;
+ T(2)=300;
+ XB=0;
+ MBW=0;
+ C=1;
+ XNG(1:4) = 0;
+ XNF(1:4) = 0;
+END
+
+
